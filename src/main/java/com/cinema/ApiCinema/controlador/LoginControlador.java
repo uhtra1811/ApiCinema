@@ -21,7 +21,6 @@ public class LoginControlador {
     @CrossOrigin
     @PostMapping("/login")
     public Usuario login(@RequestParam Map<String, String> usuario ){
-    	System.out.println(usuario);
     	Usuario _usuario = new Usuario();
       	_usuario = usuarioRepositorio.findByEmailAndSenha(usuario.get("email"), usuario.get("senha")).stream().findFirst().orElse(null);
     	return _usuario;
